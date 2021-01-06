@@ -12,10 +12,22 @@ namespace Mvc_EF.Controllers
         //
         // GET: /Cliente/
         public ActionResult Index()
-        {
-            ClienteContext cc = new ClienteContext();
-            List<Cliente> lista = cc.clientes.ToList();            
-            return View(lista);
+        {            
+            using (ClienteContext cc = new ClienteContext()) {
+                List<Cliente> lista = new List<Cliente>();
+                lista = cc.clientes.ToList();
+                
+                return View(lista);
+            }
+        }
+
+        public ActionResult Detalhes(int id)
+        {            
+            using (ClienteContext cc = new ClienteContext())
+            {   
+                Cliente cliente = cc.clientes.SingleOrDefault(c=>c.Id == id);
+                return View(cliente);
+            }            
         }
 	}
 }
