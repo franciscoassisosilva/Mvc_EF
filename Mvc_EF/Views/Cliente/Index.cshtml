@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Mvc_EF.Models.Cliente>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clientes</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <th>Nome</th>
+            @foreach (var cli in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(c => cli.Nome)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
