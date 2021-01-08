@@ -11,11 +11,11 @@ namespace Mvc_EF.Controllers
     {
         //
         // GET: /Cliente/
-        public ActionResult Index()
+        public ActionResult Index(int tipoId)
         {            
             using (ClienteContext cc = new ClienteContext()) {
                 List<Cliente> lista = new List<Cliente>();
-                lista = cc.clientes.ToList();
+                lista = cc.clientes.Where(c=>c.TipoId == tipoId).ToList();
                 
                 return View(lista);
             }
@@ -25,7 +25,7 @@ namespace Mvc_EF.Controllers
         {            
             using (ClienteContext cc = new ClienteContext())
             {   
-                Cliente cliente = cc.clientes.SingleOrDefault(c=>c.Id == id);
+                Cliente cliente = cc.clientes.Include("Tipo").SingleOrDefault(c=>c.Id == id);
                 return View(cliente);
             }            
         }

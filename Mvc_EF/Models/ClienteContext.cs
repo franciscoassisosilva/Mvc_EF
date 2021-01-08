@@ -16,5 +16,6 @@ namespace Mvc_EF.Models
         }
 
         public DbSet<Cliente> clientes { get; set; }
+        public DbSet<TipoCliente> tipos { get; set; }
     }
 }

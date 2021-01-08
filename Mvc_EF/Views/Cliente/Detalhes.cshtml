@@ -13,10 +13,11 @@
 </head>
 <body>
     <div> 
-        @Html.DisplayFor(c=>c.Id)
-        @Html.DisplayFor(c=>c.Nome)
+        @Html.DisplayFor(c=>c.Id) 
+        @Html.DisplayFor(c=>c.Nome) - 
+        @Html.DisplayFor(c=>c.Tipo.Nome)
     </div>    
 
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Voltar", "Index", new { tipoId = Model.TipoId })
 </body>
 </html>

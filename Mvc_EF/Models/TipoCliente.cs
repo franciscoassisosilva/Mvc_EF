@@ -6,17 +6,12 @@ using System.Web;
 
 namespace Mvc_EF.Models
 {
-    [Table("Clientes")]
-    public class Cliente
+    [Table("Tipos")]
+    public class TipoCliente
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Email { get; set; }
-        public string Telefone { get; set; }
-
-        [ForeignKey("Tipo")]
-        public int TipoId { get; set; }
-
-        public TipoCliente Tipo { get; set; }
+        
+        public IList<Cliente> clientes { get; set; }
     }
 }

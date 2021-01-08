@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Mvc_EF.Models.TipoCliente>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Lista de Tipos de Clientes</h2>
+    <ul>
+        @foreach (var tipo in Model)
+        {
+            <li>
+                @Html.ActionLink(tipo.Nome, "Index", "Cliente", new { tipoId = tipo.Id }, null)
+            </li>
+        }
+    </ul>
+</body>
+</html>
